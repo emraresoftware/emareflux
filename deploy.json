@@ -1,0 +1,22 @@
+{
+  "slug": "emareflux",
+  "name": "Emare Flux",
+  "github_repo": "emraresoftware/emareflux",
+  "branch": "main",
+  "dc": "local",
+  "server_host": null,
+  "server_ssh_port": 22,
+  "remote_path": "/opt/emareflux",
+  "stack": "node-pm2",
+  "port": 8310,
+  "domain": "",
+  "deploy_commands": [
+    "cd /opt/emareflux",
+    "git pull origin main",
+    "npm ci --silent",
+    "pm2 restart emareflux || pm2 start ecosystem.config.js"
+  ],
+  "restart_command": "pm2 status emareflux",
+  "auto_deploy_on_push": false,
+  "health_check_url": null
+}
